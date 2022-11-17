@@ -1,0 +1,15 @@
+.header {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(19, 4, 91);
+}
+
+.title {
+  text-align: center;
+  font-size: large;
+  font-size: xx-large;
+  color: aliceblue;
+}

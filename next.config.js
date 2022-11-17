@@ -1,8 +1,19 @@
 /** @type {import('next').NextConfig} */
+
+const securityHeaders = require("./headers");
+
 const nextConfig = {
   experimental: {
-    appDir: true,
+    appDir: false,
   },
-}
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: securityHeaders,
+      },
+    ];
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

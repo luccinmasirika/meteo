@@ -1,0 +1,3 @@
+interface Ville {
+  id: string;
+}
