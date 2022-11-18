@@ -5,7 +5,7 @@ import React from "react";
 import styles from "./search.module.css";
 
 const Search = () => {
-  const [value, setValue] = useAtom(SearchValue || "London");
+  const [value, setValue] = useAtom(SearchValue);
 
   const handleChange = useDebouncedCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);

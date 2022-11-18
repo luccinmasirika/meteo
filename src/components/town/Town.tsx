@@ -19,11 +19,12 @@ const Town = () => {
     );
   }
 
-  if (data.error || !isObjectEmpty(data.response)) {
+  if (!isObjectEmpty(data.error)) {
+    console.log("data.error", data.error);
     throw new Error("Somethings wet wrong");
   }
 
-  if (!data?.isLoading && isObjectEmpty(data.response)) {
+  if (!data?.isLoading || data.response?.cod === 4000) {
     return (
       <div className={styles.container}>
         <span>No data found</span>

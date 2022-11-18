@@ -16,6 +16,7 @@ interface Data {
   main: Main;
   wind: Wind;
   name: string;
+  cod: number;
 }
 
 interface Weather {
