@@ -1,9 +1,16 @@
 .search {
-  height: 48px;
+  height: 72px;
   width: 80%;
   margin: 40px auto;
-  font-size: x-large;
-  padding: 0 20px;
+  font-size: large;
   display: block;
-  border: 2px solid black;
+  border: none;
+  border-bottom: 3px solid rgb(255, 255, 255);
+  outline: none;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.search::-webkit-input-placeholder {
+  color: rgb(255, 255, 255);
 }

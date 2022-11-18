@@ -1,15 +1,15 @@
-import React, { useCallback } from "react";
-import { useAtom } from "jotai";
-import styles from "./search.module.css";
-import { useDebouncedCallback } from "@/hooks/useDebouncedCallback";
 import { SearchValue } from "@/features/search";
+import { useDebouncedCallback } from "@/hooks/useDebouncedCallback";
+import { useAtom } from "jotai";
+import React from "react";
+import styles from "./search.module.css";
 
 const Search = () => {
-  const [value, setValue] = useAtom(SearchValue);
+  const [_value, setValue] = useAtom(SearchValue);
 
   const handleChange = useDebouncedCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-  }, 300);
+  }, 250);
 
   return (
     <input

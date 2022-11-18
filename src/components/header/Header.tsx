@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      <p className={styles.title}>Météo App {search && `Ville de ${search}`}</p>
+      <h1 className={styles.title}>Weather App</h1>
     </div>
   );
 };

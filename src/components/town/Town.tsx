@@ -1,21 +1,61 @@
-import { Data } from "@/features/data";
+import { BASE_URL, KEY } from "@/config/url";
 import { SearchValue } from "@/features/search";
+import { useFetch } from "@/hooks/useFetch";
+import { isObjectEmpty } from "@/utils/isObjectEmpty";
 import { useAtom } from "jotai";
 import styles from "./town.module.css";
 
 const Town = () => {
-  const [data, _setData] = useAtom(Data);
   const [search, _setSearch] = useAtom(SearchValue);
+  const data = useFetch<Data>(`${BASE_URL}?q=${search}&appid=${KEY}`);
 
-  const list = search ? data.filter((el) => el.startsWith(search)) : data;
+  const weather = data.response;
+
+  if (data?.isLoading) {
+    return (
+      <div className={styles.container}>
+        <span>Loading...</span>
+      </div>
+    );
+  }
+
+  if (!data?.isLoading && isObjectEmpty(data.response)) {
+    return (
+      <div className={styles.container}>
+        <span>No data found</span>
+      </div>
+    );
+  }
 
   return (
-    <div className={styles.town}>
-      <ul>
-        {list.map((el) => (
-          <li key={el}>{el}</li>
-        ))}
-      </ul>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Weather in {weather?.name}</h1>
+      <div className={styles.grid}>
+        <div className={styles.card}>
+          <h3>Temperature &rarr;</h3>
+          <p>{weather?.main.temp}</p>
+        </div>
+        <div className={styles.card}>
+          <h3>Feels like &rarr;</h3>
+          <p>{weather?.main.feels_like}</p>
+        </div>
+        <div className={styles.card}>
+          <h3>Humidity &rarr;</h3>
+          <p>{weather?.main.humidity}</p>
+        </div>
+        <div className={styles.card}>
+          <h3>Pressure &rarr;</h3>
+          <p>{weather?.main.pressure}</p>
+        </div>
+        <div className={styles.card}>
+          <h3>Wind speed &rarr;</h3>
+          <p>{weather?.wind.speed}</p>
+        </div>
+        <div className={styles.card}>
+          <h3>Wind direction &rarr;</h3>
+          <p>{weather?.wind.deg}</p>
+        </div>
+      </div>
     </div>
   );
 };

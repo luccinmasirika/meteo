@@ -1,3 +1,3 @@
 import { atom } from "jotai";
 
-export const SearchValue = atom("");
+export const SearchValue = atom("London");
