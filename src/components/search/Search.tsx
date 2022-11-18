@@ -5,7 +5,7 @@ import React from "react";
 import styles from "./search.module.css";
 
 const Search = () => {
-  const [_value, setValue] = useAtom(SearchValue);
+  const [value, setValue] = useAtom(SearchValue || "London");
 
   const handleChange = useDebouncedCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -16,6 +16,7 @@ const Search = () => {
       placeholder="Rechercher..."
       className={styles.search}
       onChange={handleChange}
+      defaultValue={value}
       type="search"
       name="ville"
       id="ville"

@@ -19,6 +19,10 @@ const Town = () => {
     );
   }
 
+  if (data.error || !isObjectEmpty(data.response)) {
+    throw new Error("Somethings wet wrong");
+  }
+
   if (!data?.isLoading && isObjectEmpty(data.response)) {
     return (
       <div className={styles.container}>
@@ -33,27 +37,27 @@ const Town = () => {
       <div className={styles.grid}>
         <div className={styles.card}>
           <h3>Temperature &rarr;</h3>
-          <p>{weather?.main.temp}</p>
+          <p>{weather?.main?.temp}</p>
         </div>
         <div className={styles.card}>
           <h3>Feels like &rarr;</h3>
-          <p>{weather?.main.feels_like}</p>
+          <p>{weather?.main?.feels_like}</p>
         </div>
         <div className={styles.card}>
           <h3>Humidity &rarr;</h3>
-          <p>{weather?.main.humidity}</p>
+          <p>{weather?.main?.humidity}</p>
         </div>
         <div className={styles.card}>
           <h3>Pressure &rarr;</h3>
-          <p>{weather?.main.pressure}</p>
+          <p>{weather?.main?.pressure}</p>
         </div>
         <div className={styles.card}>
           <h3>Wind speed &rarr;</h3>
-          <p>{weather?.wind.speed}</p>
+          <p>{weather?.wind?.speed}</p>
         </div>
         <div className={styles.card}>
           <h3>Wind direction &rarr;</h3>
-          <p>{weather?.wind.deg}</p>
+          <p>{weather?.wind?.deg}</p>
         </div>
       </div>
     </div>
