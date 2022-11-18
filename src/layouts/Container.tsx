@@ -6,7 +6,7 @@ import styles from "./container.module.css";
 export const Container: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className={styles.container}>
-      <Image src={Background} alt="Weather" className={styles.bg} />
+      <Image src={Background} alt="Weather App" className={styles.bg} />
       {children}
     </div>
   );

@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Container>
       <Head>
-        <title>Météo App</title>
+        <title>Weather App</title>
         <meta name="description" content="React test - Météo app" />
       </Head>
       <Header />
