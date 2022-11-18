@@ -24,7 +24,7 @@ const Town = () => {
     throw new Error("Somethings wet wrong");
   }
 
-  if (!data?.isLoading || data.response?.cod === 4000) {
+  if (!data?.isLoading || data.response?.cod === 400) {
     return (
       <div className={styles.container}>
         <span>No data found</span>
